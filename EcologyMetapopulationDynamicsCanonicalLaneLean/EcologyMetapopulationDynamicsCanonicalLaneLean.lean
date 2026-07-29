@@ -1,0 +1,18 @@
+import canonicalLaneMathlib.AdmissibleClass
+import EcologyMetapopulationDynamicsCanonicalLaneLean.HabitatPatchDynamics
+import EcologyMetapopulationDynamicsCanonicalLaneLean.LevinsMetapopulationModel
+import EcologyMetapopulationDynamicsCanonicalLaneLean.IncidenceFunctionModel
+import EcologyMetapopulationDynamicsCanonicalLaneLean.StochasticPatchDynamics
+import EcologyMetapopulationDynamicsCanonicalLaneLean.SpatiallyExplicitMetapopulation
+
+namespace HautevilleHouse
+namespace EcologyMetapopulationDynamicsCanonicalLaneLean
+
+def EcologyMetapopulationClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem ecology_metapopulation_endgame (A : AdmissibleClass) : EcologyMetapopulationClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end EcologyMetapopulationDynamicsCanonicalLaneLean
+end HautevilleHouse
